@@ -1,0 +1,172 @@
+
+import cv2;
+import numpy as np;
+import csv
+
+with open ('Locations A.csv', mode='r') as A:
+    csv_reader = csv.DictReader(A)
+
+    A_list = []
+    for row in csv_reader:
+        A_list.append(row)
+
+with open ('Locations B.csv', mode='r') as B:
+    csv_reader = csv.DictReader(B)
+
+    B_list = []
+    for row in csv_reader:
+        B_list.append(row)
+
+with open ('Locations C.csv', mode='r') as C:
+    csv_reader = csv.DictReader(C)
+
+    C_list = []
+    for row in csv_reader:
+        C_list.append(row)
+
+with open ('Locations D.csv', mode='r') as D:
+    csv_reader = csv.DictReader(D)
+
+    D_list = []
+    for row in csv_reader:
+        D_list.append(row)
+
+with open ('Locations E.csv', mode='r') as E:
+    csv_reader = csv.DictReader(E)
+
+    E_list = []
+    for row in csv_reader:
+        E_list.append(row)
+
+with open ('Locations clock.csv', mode='r') as Clock:
+    csv_reader = csv.DictReader(Clock)
+
+    Clock_list = []
+    for row in csv_reader:
+        Clock_list.append(row)
+
+with open ('Locations generic.csv', mode='r') as Gen:
+    csv_reader = csv.DictReader(Gen)
+
+    Gen_list = []
+    for row in csv_reader:
+        Gen_list.append(row)
+
+with open ('Locations Power On.csv', mode='r') as Power:
+    csv_reader = csv.DictReader(Power)
+
+    Power_list = []
+    for row in csv_reader:
+        Power_list.append(row)
+
+
+image_path = "Splitter test.png"
+img=cv2.imread(image_path)
+
+if img is None:
+    print("Error: Could not load image. Check the file path.")
+    exit()
+
+for x in range(len(A_list)):
+    image_name = str(A_list[x]['file name'])
+    X_start= int(A_list[x]["X start"])
+    Y_start= int(A_list[x]["Y start"])
+    X_end= int(A_list[x]["X end"])
+    Y_end= int(A_list[x]["Y end"])
+
+    sub_image= img[Y_start:Y_end, X_start:X_end]
+    output_path= 'output/Theme A/' f"{image_name}"
+
+    cv2.imwrite(str(output_path), sub_image)
+    print(f"Saved: {output_path}")
+
+for x in range(len(B_list)):
+    image_name = str(B_list[x]['file name'])
+    X_start= int(B_list[x]["X start"])
+    Y_start= int(B_list[x]["Y start"])
+    X_end= int(B_list[x]["X end"])
+    Y_end= int(B_list[x]["Y end"])
+
+    sub_image= img[Y_start:Y_end, X_start:X_end]
+    output_path= "output/Theme B/"  f"{image_name}"
+
+    cv2.imwrite(str(output_path), sub_image)
+    print(f"Saved: {output_path}")
+
+for x in range(len(C_list)):
+    image_name = str(C_list[x]['file name'])
+    X_start= int(C_list[x]["X start"])
+    Y_start= int(C_list[x]["Y start"])
+    X_end= int(C_list[x]["X end"])
+    Y_end= int(C_list[x]["Y end"])
+
+    sub_image= img[Y_start:Y_end, X_start:X_end]
+    output_path= "output/Theme C/"  f"{image_name}"
+
+    cv2.imwrite(str(output_path), sub_image)
+    print(f"Saved: {output_path}")
+
+for x in range(len(D_list)):
+    image_name = str(D_list[x]['File name'])
+    X_start= int(D_list[x]["X start"])
+    Y_start= int(D_list[x]["Y Start"])
+    X_end= int(D_list[x]["X End"])
+    Y_end= int(D_list[x]["Y end"])
+
+    sub_image= img[Y_start:Y_end, X_start:X_end]
+    output_path= "output/Theme D/"  f"{image_name}"
+
+    cv2.imwrite(str(output_path), sub_image)
+    print(f"Saved: {output_path}")
+
+for x in range(len(E_list)):
+    image_name = str(E_list[x]['file name'])
+    X_start= int(E_list[x]["X start"])
+    Y_start= int(E_list[x]["Y start"])
+    X_end= int(E_list[x]["X end"])
+    Y_end= int(E_list[x]["Y end"])
+
+    sub_image= img[Y_start:Y_end, X_start:X_end]
+    output_path= "output/Theme E/"  f"{image_name}"
+
+    cv2.imwrite(str(output_path), sub_image)
+    print(f"Saved: {output_path}")
+
+for x in range(len(Clock_list)):
+    image_name = str(Clock_list[x]['file name'])
+    X_start= int(Clock_list[x]["X start"])
+    Y_start= int(Clock_list[x]["Y start"])
+    X_end= int(Clock_list[x]["X end"])
+    Y_end= int(Clock_list[x]["Y end"])
+
+    sub_image= img[Y_start:Y_end, X_start:X_end]
+    output_path= "output/Clock/"  f"{image_name}"
+
+    cv2.imwrite(str(output_path), sub_image)
+    print(f"Saved: {output_path}")
+
+for x in range(len(Gen_list)):
+    image_name = str(Gen_list[x]['file name'])
+    X_start= int(Gen_list[x]["X start"])
+    Y_start= int(Gen_list[x]["Y start"])
+    X_end= int(Gen_list[x]["X end"])
+    Y_end= int(Gen_list[x]["Y end"])
+
+    sub_image= img[Y_start:Y_end, X_start:X_end]
+    output_path= "output/Generic/"  f"{image_name}"
+
+    cv2.imwrite(str(output_path), sub_image)
+    print(f"Saved: {output_path}")
+
+for x in range(len(Power_list)):
+    image_name = str(Power_list[x]['file name'])
+    X_start= int(Power_list[x]["X start"])
+    Y_start= int(Power_list[x]["Y start"])
+    X_end= int(Power_list[x]["X end"])
+    Y_end= int(Power_list[x]["Y end"])
+
+    sub_image= img[Y_start:Y_end, X_start:X_end]
+    output_path= "output/Power On/"  f"{image_name}"
+
+    cv2.imwrite(str(output_path), sub_image)
+    print(f"Saved: {output_path}")
